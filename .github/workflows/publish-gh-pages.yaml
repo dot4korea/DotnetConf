@@ -58,20 +58,19 @@ jobs:
       uses: actions/upload-pages-artifact@v4
       with:
         path: ./src/output
+  deploy:
+    name: Deploy App to GitHub Pages
+    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
+    needs:
+    - build_artifact
 
-deploy:
-  name: Deploy App to GitHub Pages
-  if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
-  needs:
-  - build_artifact
+    runs-on: ubuntu-latest
 
-  runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-  environment:
-    name: github-pages
-    url: ${{ steps.deployment.outputs.page_url }}
-
-  steps:
-  - name: Deploy to GitHub Pages
-    id: deployment
-    uses: actions/deploy-pages@v4
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
