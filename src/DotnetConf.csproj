@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Statiq.Web" Version="1.0.0-beta.60" />
+    <Compile Remove="pages\**" />
+    <EmbeddedResource Remove="pages\**" />
+    <None Remove="pages\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="pages\" />
+    <PackageReference Include="Statiq.Web" Version="1.0.0-beta.60" />
   </ItemGroup>
 
 </Project>

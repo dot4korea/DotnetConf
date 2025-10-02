@@ -481,12 +481,3 @@ $RECYCLE.BIN/
 *.lnk
 
 # Vim temporary swap files
-*.swp
-
-# Statiq
-cache/
-output/
-temp/
-wwwroot/
-
-md2html/
