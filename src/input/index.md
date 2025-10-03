@@ -1,4 +1,4 @@
-﻿Title: Dotnet Korea Conf 2026
+﻿Title: .NET Conf 2025
 ---
 
 B to the I to the G, B to the A N G

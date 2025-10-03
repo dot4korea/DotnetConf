@@ -6,9 +6,11 @@ using Statiq.Markdown;
 return await Bootstrapper
     .Factory
     .CreateWeb (args)
+#if !DEBUG
     .ConfigureSettings (settings =>
     {
         settings[Keys.LinkRoot] = "/conf";
         settings[Keys.LinksUseHttps] = false; // 필요시
     })
+#endif
     .RunAsync ();
